@@ -45,20 +45,21 @@ function App() {
   return (
     <div className="app">
       <div className="featured-data">
-        <FeaturedData />
+        <FeaturedData city="Sinaia" />
       </div>
 
       <div className="temperature-display">
-        <WeatherIcon />
+        <WeatherIcon weatherCode={data.weatherCode} />
       </div>
       <div className="main-data">
-        <MainData />
+        <MainData temp={data.temperature} tempa={data.apparentTemperature} />
       </div>
       <div className="time-data">
-        <TimeData />
+        <TimeData data={`${data.time.year} ${data.time.month} ${data.time.day}`}
+                  time={`${data.time.hour} ${data.time.minute} ${data.time.second}`}/>
       </div>
       <div className="forecast">
-        <Forecast />
+        <Forecast forecast={data.hourlyData}/>
       </div>
     </div>
   );
